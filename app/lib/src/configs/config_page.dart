@@ -36,13 +36,13 @@ class _ConfigPageState extends State<ConfigPage> {
               onChanged: _appStore.changeThemeMode,
             ),
             RadioListTile<ThemeMode>(
-              value: ThemeMode.system,
+              value: ThemeMode.light,
               groupValue: _appStore.themeMode.value,
               title: const Text('Light'),
               onChanged: _appStore.changeThemeMode,
             ),
             RadioListTile<ThemeMode>(
-              value: ThemeMode.system,
+              value: ThemeMode.dark,
               groupValue: _appStore.themeMode.value,
               title: const Text('Dark'),
               onChanged: _appStore.changeThemeMode,
@@ -50,9 +50,9 @@ class _ConfigPageState extends State<ConfigPage> {
             const SizedBox(height: 24),
             Text('Data control', style: _textTheme.titleMedium),
             const SizedBox(height: 16),
-            const OutlinedButton(
-              onPressed: null,
-              child: Text('Delete cache and restart the app'),
+            OutlinedButton(
+              onPressed: () {},
+              child: const Text('Delete cache and restart the app'),
             ),
           ],
         ),
