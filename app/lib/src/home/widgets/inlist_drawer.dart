@@ -10,6 +10,7 @@ class InlistDrawer extends StatelessWidget {
     return NavigationDrawer(
       onDestinationSelected: (index) {
         if (index == 1) {
+          Navigator.of(context).pop();
           Navigator.of(context).pushNamed('/configs');
         }
       },
