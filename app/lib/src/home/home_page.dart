@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:inlist/src/home/widgets/inlist_drawer.dart';
 import 'package:inlist/src/shared/widgets/user_image_button.dart';
+
+import '../shared/stores/app_store.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +15,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final _appStore =
+        context.watch<AppStore>((store) => store.segmentedButtonValue);
+
     return Scaffold(
       drawer: const InlistDrawer(),
       appBar: AppBar(
@@ -47,8 +53,10 @@ class _HomePageState extends State<HomePage> {
                     label: Text('Disabled'),
                   ),
                 ],
-                selected: const {0},
-                onSelectionChanged: (val) {},
+                selected: _appStore.segmentedButtonValue.value,
+                onSelectionChanged: (value) {
+                  _appStore.segmentedButtonValue.value = value;
+                },
               ),
             ),
           ],
