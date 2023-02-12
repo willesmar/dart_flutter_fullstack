@@ -11,7 +11,7 @@ class AppModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ModuleRoute('/', module: HomeModule()),
+        ModuleRoute('/home', module: HomeModule()),
         ChildRoute('/configs', child: (context, args) => const ConfigPage()),
       ];
 }
